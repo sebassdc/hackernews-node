@@ -1,0 +1,20 @@
+# The http endpoint for your prisma api
+#endpoint: ''
+endpoint: https://us1.prisma.sh/sebastian-hurtado-504e9b/database/dev
+
+# Points to the file that contains your datamodel
+datamodel: datamodel.prisma
+
+# You can only access the API when providing
+# JWTs that are signed with this secret
+secret: mysecret123
+
+
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+
+# This command will run after a deploy is made
+hooks:
+  post-deploy:
+    - prisma generate
