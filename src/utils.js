@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken')
 const APP_SECRET = 'pizza'
 
+/**
+ * Receive a context and returns an user id
+ * @param context - The graphql context
+ */
 const getUserId = (context) => {
   const Authorization = context.request.get('Authorization')
   if (Authorization) {
